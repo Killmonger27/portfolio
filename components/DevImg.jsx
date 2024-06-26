@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import React from 'react'
 
-const DevImg = ({containerStyles,imgSyles,imgSrc}) => {
+const DevImg = ({containerStyles,imgSrc}) => {
   return (
     <div className={`${containerStyles}`}>
-      <Image src={imgSrc} priority alt='photo of landry ouarma' width={250} height={200}/>
+      <Image src={imgSrc} priority alt='photo of landry ouarma' width={315} height={300}/>
     </div>
   )
 }

@@ -36,10 +36,38 @@ const Hero = () => {
 
                     <Social containerStyles='flex gap-x-6 mx-auto xl:mx-0' iconsStyles='text-foreground text-[22px] hover:text-primary transiton-all'/>
                 </div>
-                <div className='hidden xl:flex relative'>
-                    <div className='bg-hero_shape2_light dark:bg-hero_shape2_dark w-[510px] h-[400px] bg-no-repeat absolute -top-2 -right-2' >
+                <div className='hidden xl:flex relative '>
+                    {/** Badge */}
+
+                    <Badge 
+                        endCountNumb={1} 
+                        icon={<RiBriefcase4Fill />} 
+                        badgeText='Year Of Experience' 
+                        containerStyles='absolute bg-white top-[10%] -left-7'
+                    />
+
+                    
+                    
+                    <Badge 
+                        endCountNumb={20}
+                        endCountText={'+'} 
+                        icon={<RiTeamFill />} 
+                        badgeText='Happy Clients' 
+                        containerStyles='absolute top-[40%] -right-2 '
+                    />
+
+                    <Badge 
+                        endCountNumb={5}
+                        endCountText={'+'} 
+                        icon={<RiTodoFill/>} 
+                        badgeText='Finished Projects' 
+                        containerStyles='absolute bg-white top-[70%] '
+                    />
+
+
+                    <div className='bg-hero_shape2_light dark:bg-hero_shape2_dark w-[410px] h-[400px] bg-no-repeat absolute top-3 -right-2' >
                     </div>
-                    <DevImg className=' ' containerStyles=' bg-hero_shape w-[510px] h-[400px] bg-no-repeat relative  bg-bottom' imgSrc='/hero/file.png'/>
+                    <DevImg containerStyles=' bg-hero_shape w-[400px] h-[410px] bg-no-repeat relative top-3 ' imgSrc='/hero/file.png'/>
                 </div>
             </div>
             <div className='hidden xl:flex absolute left-2/4 bottom-44 xl:bottom-12 animate-bounce'>
