@@ -19,7 +19,7 @@ import Social from './Social'
 
 const Hero = () => {
   return (
-    <section className='py-5 md:bg-top xl:bg-bottom xl:py-10  h-[84vh] 2xl:pt-28 bg-hero bg-no-repeat bg-bottom dark:bg-none '>
+    <section className='py-5 md:bg-top xl:bg-bottom 2xl:bg-top xl:py-10  h-[84vh] 2xl:pt-28 bg-hero bg-no-repeat bg-bottom dark:bg-none '>
         <div className="container mx-auto">
             <div className=' flex justify-between gap-x-8'>
                 <div className='flex max-w-[600px] flex-col justify-center mx-auto xl:mx-0 text-center xl:text-left'>
@@ -67,7 +67,7 @@ const Hero = () => {
 
                     <div className='bg-hero_shape2_light dark:bg-hero_shape2_dark w-[410px] h-[400px] bg-no-repeat absolute top-3 -right-2' >
                     </div>
-                    <DevImg containerStyles=' bg-hero_shape w-[400px] h-[410px] bg-no-repeat relative top-3 ' imgSrc='/hero/file.png'/>
+                    <DevImg containerStyles=' bg-hero_shape w-[400px] h-[410px] bg-no-repeat relative top-3 ' imgSrc='/hero/file.png' alt='photo of landry ouarma' />
                 </div>
             </div>
             <div className='hidden xl:flex absolute left-2/4 bottom-44 xl:bottom-12 animate-bounce'>

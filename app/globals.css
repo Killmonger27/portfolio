@@ -69,8 +69,24 @@
   @apply text-4xl xl:text-5xl xl:leading-[80px] tracking-[-2px] font-bold;
 }
 
+.h2{
+  @apply text-3xl font-bold;
+}
+
+.h3{
+  @apply text-2xl font-bold;
+}
+
+.h4{
+  @apply text-[20px] font-semibold;
+}
+
 .subtitle{
   @apply text-muted-foreground text-lg mb-4 font-light;
+}
+
+.section-title{
+  @apply text-4xl font-bold relative w-max flex items-center justify-between gap-x-3 before:dark:bg-dots_dark before:bg-dots_light before:bg-no-repeat before:bg-center before:w-[24px] before:h-[24px];
 }
 
 .badge{
