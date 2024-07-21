@@ -137,7 +137,7 @@ const About = () => {
   };
 
   return (
-    <section className="xl:h-[860px] pb-12 xl:py-10">
+    <section className="xl:h-[700px] pb-6 xl:py-6">
       <div className="container mx-auto">
         <h2 className="section-title mb-7 xl:mb-14 text-center mx-auto">
           About me
