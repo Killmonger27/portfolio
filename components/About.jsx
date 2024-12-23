@@ -1,5 +1,3 @@
-import React from "react";
-
 import DevImg from "./DevImg";
 import Image from "next/image";
 
