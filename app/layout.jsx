@@ -10,22 +10,20 @@ const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Landry Ouarma||Full-Stack Developer",
-  description: "Portfolio of Landry Ouarma alias Kill_m0nger27 designed by and for himself",
+  description:
+    "Portfolio of Landry Ouarma alias Kill_m0nger27 designed by and for himself",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={outfit.className}>
-        <ThemeProvider attribute = 'class' defaultTheme='dark'>
-
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <Header />
           {children}
           <Footer />
-          
         </ThemeProvider>
       </body>
-        
     </html>
   );
 }

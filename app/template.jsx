@@ -1,32 +1,40 @@
-'use client'
+"use client";
 
-import React from 'react'
-import { motion } from 'framer-motion'
-import useScrollProgress from '@/hooks/useScrollProgress'
+import React from "react";
+import { motion } from "framer-motion";
+import useScrollProgress from "@/hooks/useScrollProgress";
+import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 
 const variants = {
-    hidden: {opacity: 0},
-    enter: {opacity: 1}
-}
-
-const Template = ({children}) => {
-  const completion = useScrollProgress()  
+  hidden: { opacity: 0, y: 20 }, // Départ légèrement en bas
+  enter: { opacity: 1, y: 0 }, // Arrivée à la position normale
+};
+process.env = "development";
+const Template = ({ children }) => {
+  const completion = useScrollProgress();
   return (
     <>
-        <motion.main
+      <motion.main
         variants={variants}
-        initial='hidden'
-        animate='enter'
-        transition={{type:'linear',delay:0.2,duration:0.4}}
-        >
-            {children}
-        </motion.main>
-        <span style={{transform:`translateY(${completion-100}%)`}} className=' fixed z-50 bg-primary w-1 top-0 right-0 bottom-0 transition-all duration 700'></span>
-        <div className='h-[4000px]'></div>
+        initial="hidden"
+        animate="enter"
+        transition={{ type: "linear", delay: 0.2, duration: 0.4 }}
+      >
+        {children}
+      </motion.main>
+      <span
+        style={{ transform: `translateY(${completion - 100}%)` }}
+        className="fixed z-50 bg-primary w-1 top-0 right-0 bottom-0 transition-all duration-700"
+      >
+        <div className="absolute -right-2 top-0 w-4 h-4 bg-primary rounded-full flex items-center justify-center text-white text-xs">
+          {Math.round(completion)}%
+        </div>
+      </span>
+      {/* {process.env.NODE_ENV === "development" && (
+        <div className="h-[4000px]"></div>
+      )} */}
     </>
-    
+  );
+};
 
-  )
-}
-
-export default Template
+export default Template;

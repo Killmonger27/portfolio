@@ -1,5 +1,8 @@
+"use client";
+
 import DevImg from "./DevImg";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -79,26 +82,43 @@ const skillData = [
     title: "skills",
     data: [
       {
-        name: "HTML, CSS",
+        category: "Frontend Development",
+        skills: [
+          { name: "React & Next.js", level: 90 },
+          { name: "JavaScript (ES6+)", level: 95 },
+          { name: "HTML5 & CSS3", level: 95 },
+          { name: "Tailwind CSS", level: 85 },
+          { name: "TypeScript", level: 80 },
+        ],
       },
       {
-        name: "JavaScript, Java, Python, PHP",
+        category: "Backend Development",
+        skills: [
+          { name: "Node.js & Express", level: 85 },
+          { name: "Python & Django", level: 80 },
+          { name: "Java & Spring Boot", level: 75 },
+          { name: "PHP & Laravel", level: 70 },
+          { name: "RESTful APIs", level: 90 },
+        ],
       },
       {
-        name: "Frontend Development",
+        category: "Database & Cloud",
+        skills: [
+          { name: "MongoDB & Prisma", level: 85 },
+          { name: "MySQL & PostgreSQL", level: 80 },
+          { name: "AWS Services", level: 75 },
+          { name: "Firebase", level: 80 },
+        ],
       },
       {
-        name: "Backend Developement",
-      },
-      {
-        name: "MERN Stack",
-      },
-      {
-        name: "Next.js, React, Prisma",
-      },
-      { name: "Spring Boot" },
-      {
-        name: "Tailwind CSS, shadcn/ui",
+        category: "DevOps & System Administration",
+        skills: [
+          { name: "Docker & Containerization", level: 85 },
+          { name: "Linux Server Management", level: 90 },
+          { name: "CI/CD Pipelines", level: 75 },
+          { name: "Git & Version Control", level: 95 },
+          { name: "Nginx & Apache", level: 80 },
+        ],
       },
     ],
   },
@@ -106,71 +126,118 @@ const skillData = [
     title: "tools",
     data: [
       {
+        name: "VS Code",
         imgPath: "/about/vscode.svg",
-        alt: "Landry Ouarma's Vs code svg",
+        alt: "Landry Ouarma's VS Code svg",
       },
       {
+        name: "Postman",
         imgPath: "/about/postman.svg",
         alt: "Landry Ouarma's Postman svg",
       },
       {
-        imgPath: "/about/github.svg",
+        name: "GitHub",
+        imgPathLight: "/about/GitHub_light.svg",
+        imgPathDark: "/about/GitHub_dark.svg",
         alt: "Landry Ouarma's Github svg",
       },
       {
+        name: "Figma",
         imgPath: "/about/figma.svg",
         alt: "Landry Ouarma's Figma svg",
       },
       {
+        name: "Docker",
+        imgPath: "/about/docker.svg",
+        alt: "Landry Ouarma's Docker svg",
+      },
+      {
+        name: "Linux",
+        imgPath: "/about/linux.svg",
+        alt: "Landry Ouarma's Linux svg",
+      },
+      {
+        name: "AWS",
+        imgPathLight: "/about/Amazon Web Services_light.svg",
+        imgPathDark: "/about/Amazon Web Services_dark.svg",
+        alt: "Landry Ouarma's AWS svg",
+      },
+      {
+        name: "WordPress",
         imgPath: "/about/wordpress.svg",
-        alt: "Landry Ouarma's Wordpress svg",
+        alt: "Landry Ouarma's WordPress svg",
       },
     ],
   },
 ];
 
 const About = () => {
+  const { theme } = useTheme();
+  
   const getData = (arr, title) => {
     return arr.find((item) => item.title === title);
   };
 
+  const getToolImagePath = (tool) => {
+    if (tool.imgPathLight && tool.imgPathDark) {
+      return theme === "dark" ? tool.imgPathDark : tool.imgPathLight;
+    }
+    return tool.imgPath;
+  };
+
   return (
-    <section className="xl:h-[700px] pb-6 xl:py-6">
+    <section className="py-12 xl:py-24">
       <div className="container mx-auto">
-        <h2 className="section-title mb-7 xl:mb-14 text-center mx-auto">
-          About me
+        <h2 className="text-3xl xl:text-4xl font-bold text-center mb-12 xl:mb-16">
+          About Me
         </h2>
-        <div className="flex flex-col xl:flex-row xl:gap-x-32">
-          <div className="hidden xl:flex mt-28 relative">
+        <div className="flex flex-col xl:flex-row xl:gap-x-16 items-center xl:items-start">
+          <div className="hidden xl:flex xl:w-1/2 justify-center mb-12 xl:mb-0">
             <DevImg
               imgSrc="/about/dev.svg"
-              containerStyles="h-[400px] w-[500px] bg-no-repeat relative items-center"
-              w={380}
-              h={390}
+              containerStyles="h-[350px] w-[400px] bg-no-repeat relative"
+              w={350}
+              h={340}
             />
           </div>
-          <div>
+          <div className="xl:w-1/2">
             <div className="flex-1">
               <Tabs defaultValue="personal">
-                <TabsList className="w-full grid xl:grid-cols-3 xl:max-w-[520px] xl:border dark:border-none  ">
-                  <TabsTrigger value="personal">Personnal Info</TabsTrigger>
+                <TabsList className="w-full grid xl:grid-cols-3 xl:max-w-[520px] xl:border dark:border-none">
+                  <TabsTrigger value="personal">Personal Info</TabsTrigger>
                   <TabsTrigger value="qualifications">
                     Qualifications
                   </TabsTrigger>
                   <TabsTrigger value="skills">Skills</TabsTrigger>
                 </TabsList>
 
-                <div className="text-lg mt-8 xl:mt-4">
+                <div className="text-base mt-8 xl:mt-4">
                   <TabsContent value="personal">
                     <div className="text-center xl:text-left">
-                      <h3 className="h3 mb-4">
-                        Passionate and dedicated web developer
+                      <h3 className="text-2xl font-bold mb-4">
+                        Full-Stack Developer & DevOps Enthusiast
                       </h3>
-                      <p className="subtitle max-w-xl mx-auto xl:mx-0">
+                      <p className="text-lg mb-4 leading-relaxed max-w-xl mx-auto xl:mx-0">
                         I thrive on solving complex problems and continuously
                         learning new technologies to stay ahead in this
-                        ever-evolving field.
+                        ever-evolving field. My passion extends beyond web
+                        development to{" "}
+                        <span className="font-semibold text-primary">
+                          system administration
+                        </span>{" "}
+                        and
+                        <span className="font-semibold text-primary">
+                          {" "}
+                          DevOps culture
+                        </span>
+                        .
                       </p>
+                      {/* <p className="text-sm text-muted-foreground max-w-xl mx-auto xl:mx-0 mb-6">
+                        I believe in building not just great applications, but
+                        also robust infrastructure and efficient deployment
+                        pipelines that enable scalable and reliable software
+                        solutions.
+                      </p> */}
 
                       <div className="grid xl:grid-cols-2 gap-4 mb-6">
                         {infoData.map((item, index) => {
@@ -187,9 +254,13 @@ const About = () => {
                       </div>
 
                       <div className="flex flex-col gap-2">
-                        <div className="text-primary">Language Skill</div>
+                        <div className="text-base font-semibold text-primary">
+                          Language Skills
+                        </div>
                         <div className="border-b border-border"></div>
-                        <div>French, English, Moore(mother Language)</div>
+                        <div className="text-base">
+                          French, English, Mooré (Native Language)
+                        </div>
                       </div>
                     </div>
                   </TabsContent>
@@ -282,47 +353,70 @@ const About = () => {
 
                   <TabsContent value="skills">
                     <div className="text-center xl:text-left">
-                      <h3 className="h3 mb-2">What I Use Everyday</h3>
+                      <h3 className="h3 mb-8">Technical Skills</h3>
 
-                      <div className=" mb-4">
-                        <h4 className="text-xl font-semibold mb-2">Skills</h4>
-                        <div className="border-b border-border mb-2"></div>
+                      {/* Skills Categories */}
+                      <div className="space-y-8">
+                        {getData(skillData, "skills").data.map(
+                          (categoryData, categoryIndex) => (
+                            <div key={categoryIndex} className="space-y-4">
+                              <h4 className="text-xl font-semibold text-primary border-b border-border pb-2">
+                                {categoryData.category}
+                              </h4>
 
-                        <div>
-                          {getData(skillData, "skills").data.map(
-                            (item, index) => {
-                              const { name } = item;
-                              return (
-                                <div
-                                  className=" w-[2/4] text-center xl:text-left mx-auto xl:mx-0 "
-                                  key={index}
-                                >
-                                  <div className="font-medium">{name}</div>
-                                </div>
-                              );
-                            }
-                          )}
-                        </div>
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {categoryData.skills.map(
+                                  (skill, skillIndex) => (
+                                    <div key={skillIndex} className="space-y-2">
+                                      <div className="flex justify-between items-center">
+                                        <span className="font-medium text-sm">
+                                          {skill.name}
+                                        </span>
+                                        <span className="text-xs text-muted-foreground">
+                                          {skill.level}%
+                                        </span>
+                                      </div>
+                                      <div className="w-full bg-secondary/30 rounded-full h-1.5">
+                                        <div
+                                          className="bg-primary h-1.5 rounded-full transition-all duration-1000 ease-out"
+                                          style={{ width: `${skill.level}%` }}
+                                        ></div>
+                                      </div>
+                                    </div>
+                                  )
+                                )}
+                              </div>
+                            </div>
+                          )
+                        )}
                       </div>
 
-                      <div>
-                        <h4 className="text-xl font-semibold mb-2 xl:text-left">
-                          Tools
+                      {/* Tools Section */}
+                      <div className="mt-8">
+                        <h4 className="text-xl font-semibold mb-6 text-primary">
+                          Development Tools
                         </h4>
-                        <div className="border-b border-border mb-2"></div>
-                        <div className="flex gap-x-8 justify-center xl:justify-start">
+                        <div className="grid grid-cols-3 md:grid-cols-4 gap-6">
                           {getData(skillData, "tools").data.map(
                             (item, index) => {
-                              const { imgPath, alt } = item;
+                              const { name, alt } = item;
+                              const imgPath = getToolImagePath(item);
                               return (
-                                <div key={index}>
+                                <div
+                                  key={index}
+                                  className="flex flex-col items-center p-4 bg-white dark:bg-secondary/50 rounded-lg border border-border/20 hover:border-primary/50 transition-all duration-300 hover:shadow-md"
+                                >
                                   <Image
                                     src={imgPath}
                                     width={48}
                                     height={48}
                                     alt={alt}
                                     priority
+                                    className="mb-3"
                                   />
+                                  <span className="text-xs font-medium text-center text-foreground">
+                                    {name}
+                                  </span>
                                 </div>
                               );
                             }

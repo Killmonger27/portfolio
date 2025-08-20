@@ -9,76 +9,37 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import ProjectCard from "@/components/ProjectCard";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-const projectData = [
-  {
-    image: "",
-    category: "React js",
-    name: "Password Generator",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, aliquid",
-    link: "/",
-    github: "/",
-  },
-  {
-    image: "",
-    category: "Next js",
-    name: "Personnal Portfolio",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, aliquid",
-    link: "/",
-    github: "/",
-  },
-  {
-    image: "",
-    category: "React js",
-    name: "Currencies Converter",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, aliquid",
-    link: "/",
-    github: "/",
-  },
-  {
-    image: "",
-    category: "Full-stack",
-    name: "Next Dashboard",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, aliquid",
-    link: "/",
-    github: "/",
-  },
-  {
-    image: "",
-    category: "Backend",
-    name: "Managment API",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, aliquid",
-    link: "/",
-    github: "/",
-  },
-];
+import { projectData } from "@/data/project";
 
 const Work = () => {
   return (
-    <section className=" relative mb-12 xl:mb-48">
+    <section className="py-12 xl:py-24">
       <div className="container mx-auto">
-        <div className="max-w-[400px] mx-auto xl:mx-0 text-center xl:text-left mb-12 xl:h-[400px] flex flex-col justify-center items-center xl:items-start">
-          <h2 className=" section-title mb-4 text-center">Latest Projects</h2>
-          <p className=" subtitle mb-8 ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-            consequuntur cum quasi atque suscipit illo.
+        {/* Header Section */}
+        <div className="text-center mb-12 xl:mb-16">
+          <h2 className="text-3xl xl:text-4xl font-bold mb-4">
+            Latest Projects
+          </h2>
+          <p className="text-lg text-muted-foreground mb-8 max-w-[600px] mx-auto">
+            Discover my latest web development projects, from React applications
+            to complete full-stack solutions.
           </p>
           <Link href="/projects">
             <Button>All Projects</Button>
           </Link>
         </div>
-        <div className="  xl:max-w-[800px] xl:absolute right-0 top-0 ">
+
+        {/* Projects Swiper */}
+        <div className="w-full">
           <Swiper
-            className="h-[438px]"
+            className="h-[480px]"
             slidesPerView={1}
             breakpoints={{
               640: {
                 slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
               },
             }}
             spaceBetween={30}

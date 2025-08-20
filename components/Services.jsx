@@ -11,35 +11,35 @@ const Services = () => {
   const services = [
     {
       icon: <GanttChartSquare size={72} strokeWidth={0.8} />,
-      title: "Web Design",
+      title: "DevOps & Cloud Solutions",
       description:
-        "Creating elegant, intuitive, and responsive web designs that offer an optimal user experience. From mockup creation to final implementation, each step is performed with attention to detail.",
+        "Specializing in Azure cloud infrastructure, CI/CD pipelines, and containerized deployments. Expertise in Docker, Kubernetes, and automated monitoring solutions for scalable applications.",
     },
     {
       icon: <Blocks size={72} strokeWidth={0.8} />,
-      title: "Web Development",
+      title: "Full-Stack Development",
       description:
-        "Developing high-performance, secure websites using modern technologies. From front-end to back-end, each site is designed to meet specific client needs while ensuring scalability.",
+        "Building modern web applications with React, Next.js, and Node.js. Creating responsive, accessible interfaces backed by robust APIs and optimized database architectures.",
     },
     {
       icon: <SearchCheck size={72} strokeWidth={0.8} />,
-      title: "SEO and Optimization",
+      title: "System Administration",
       description:
-        "Optimizing websites to improve their visibility on search engines. Services include SEO audits, content optimization, link building, and performance improvements to ensure better rankings and increased traffic.",
+        "Linux server management, network configuration, and security implementation. Passionate about automation, monitoring, and maintaining high-availability enterprise systems.",
     },
   ];
 
   return (
-    <section className="pb-12 xl:py-10">
+    <section className="py-12 xl:py-24">
       <div className="container mx-auto">
-        <h2 className="section-title mb-12 xl:mb-16 text-center mx-auto">
+        <h2 className="text-3xl xl:text-4xl font-bold text-center mb-12 xl:mb-16">
           Services
         </h2>
-        <div className="grid xl:grid-cols-3  justify-center gap-y-12 xl:gap-x-8 ">
+        <div className="grid xl:grid-cols-3 justify-center gap-y-12 xl:gap-x-8">
           {services.map((item, index) => {
             return (
               <Card
-                className="w-full max-w-[424px] h-[300px] flex flex-col pt-16 pb-10 justify-center items-center relative"
+                className="w-full max-w-[424px] h-[320px] flex flex-col pt-16 pb-10 justify-center items-center relative"
                 key={index}
               >
                 <CardHeader className="text-primary absolute -top-[60px]">
@@ -47,9 +47,11 @@ const Services = () => {
                     {item.icon}
                   </div>
                 </CardHeader>
-                <CardContent className="text-center ">
-                  <CardTitle className="mb-4">{item.title}</CardTitle>
-                  <CardDescription className="text-lg">
+                <CardContent className="text-center px-6">
+                  <CardTitle className="text-xl font-bold mb-4">
+                    {item.title}
+                  </CardTitle>
+                  <CardDescription className="text-base leading-relaxed">
                     {item.description}
                   </CardDescription>
                 </CardContent>
