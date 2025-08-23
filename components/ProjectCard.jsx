@@ -18,6 +18,7 @@ const ProjectCard = ({ project }) => {
               height={300}
               alt={project.name}
               priority
+              style={{ width: 'auto', height: 'auto' }}
             />
           )}
           {/* Links buttons */}

@@ -22,6 +22,7 @@ const Cta = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -29,24 +30,51 @@ const Cta = () => {
       ...prev,
       [name]: value,
     }));
+    // Clear error when user starts typing
+    if (error) setError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setError("");
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      // Prepare data for the API (add empty fields for compatibility)
+      const emailData = {
+        ...formData,
+        phone: "",
+        subject: "Quick Contact from Homepage",
+        budget: "",
+        timeline: "",
+      };
 
-    console.log("Form submitted:", formData);
-    setIsLoading(false);
-    setIsSubmitted(true);
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailData),
+      });
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: "", email: "", message: "" });
-    }, 3000);
+      const result = await response.json();
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        // Reset form after 5 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({ name: "", email: "", message: "" });
+        }, 5000);
+      } else {
+        setError(result.error || 'An error occurred while sending your message.');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setError('Network error. Please check your connection and try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -117,6 +145,14 @@ const Cta = () => {
                     size={20}
                   />
                 </div>
+                
+                {/* Error Message */}
+                {error && (
+                  <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 px-4 py-3 rounded-lg">
+                    <p className="text-sm">{error}</p>
+                  </div>
+                )}
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <Button
                     type="submit"
@@ -150,19 +186,21 @@ const Cta = () => {
             ) : (
               <div className="text-center py-12">
                 <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                <h3 className="h3 mb-2 text-green-600">
+                <h3 className="text-2xl font-bold mb-2 text-green-600">
                   Message Sent Successfully!
                 </h3>
-                <p className="text-muted-foreground mb-6">
-                  Thank you for reaching out. I'll get back to you within 24
-                  hours.
+                <p className="text-muted-foreground mb-4">
+                  Thank you for reaching out! I've received your message and will get back to you within 24 hours.
+                </p>
+                <p className="text-sm text-muted-foreground mb-6">
+                  You should also receive a confirmation email shortly.
                 </p>
                 <Link href="/contact">
                   <Button
                     variant="outline"
                     className="border-border hover:bg-accent"
                   >
-                    Visit Contact Page
+                    Visit Full Contact Page
                   </Button>
                 </Link>
               </div>

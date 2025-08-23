@@ -5,8 +5,8 @@ export const projectData = [
     name: "Password Generator",
     description:
       "Advanced password generator with customizable security parameters including length control, character sets, and strength indicators. Features real-time security tips and copy-to-clipboard functionality.",
-    link: "https://github.com/Killmonger27/password-generator",
-    github: "https://github.com/Killmonger27/password-generator",
+    link: "https://pswd-generator-eight.vercel.app/",
+    github: "https://github.com/Killmonger27/pswdGenerator",
   },
   {
     image: "/work/Macbook-Air-portfolio.png",
@@ -23,8 +23,8 @@ export const projectData = [
     name: "Gladys Assistant",
     description:
       "Smart home automation dashboard with real-time sensor monitoring, temperature controls, security management, and automated scene configurations for IoT device management.",
-    link: "https://github.com/Killmonger27/gladys-assistant",
-    github: "https://github.com/Killmonger27/gladys-assistant",
+    link: "https://github.com/Killmonger27/gladys-assistant-lab",
+    github: "https://github.com/Killmonger27/gladys-assistant-lab",
   },
   {
     image: "/work/grafana-2.png",
@@ -32,8 +32,8 @@ export const projectData = [
     name: "Grafana Monitoring",
     description:
       "Comprehensive monitoring solution with Grafana dashboards for system metrics, CPU/memory usage tracking, network latency monitoring, and real-time infrastructure health visualization.",
-    link: "https://github.com/Killmonger27/grafana-monitoring",
-    github: "https://github.com/Killmonger27/grafana-monitoring",
+    link: "https://github.com/Killmonger27/riemann-monitoring-lab",
+    github: "https://github.com/Killmonger27/riemann-monitoring-lab",
   },
   {
     image: "/work/1.png",

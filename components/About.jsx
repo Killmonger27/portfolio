@@ -3,6 +3,7 @@
 import DevImg from "./DevImg";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -173,12 +174,23 @@ const skillData = [
 
 const About = () => {
   const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Éviter les problèmes d'hydratation
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const getData = (arr, title) => {
     return arr.find((item) => item.title === title);
   };
 
   const getToolImagePath = (tool) => {
+    if (!mounted) {
+      // Utiliser une image par défaut pendant l'hydratation
+      return tool.imgPath || tool.imgPathLight;
+    }
+    
     if (tool.imgPathLight && tool.imgPathDark) {
       return theme === "dark" ? tool.imgPathDark : tool.imgPathLight;
     }
@@ -412,7 +424,8 @@ const About = () => {
                                     height={48}
                                     alt={alt}
                                     priority
-                                    className="mb-3"
+                                    className="mb-3 w-12 h-12 object-contain"
+                                    style={{ width: 'auto', height: 'auto' }}
                                   />
                                   <span className="text-xs font-medium text-center text-foreground">
                                     {name}

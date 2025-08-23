@@ -1,20 +1,22 @@
 import React from 'react'
 
-
-import { Sheet,SheetContent,SheetTitle,SheetTrigger } from './ui/sheet'
+import { Sheet, SheetContent, SheetTitle, SheetDescription, SheetTrigger } from './ui/sheet'
 import { AlignJustify } from 'lucide-react'
 import Nav from './Nav'
 import Logo from './Logo'
 import Social from './Social'
 
-
 const MobileNav = () => {
   return (
-    <Sheet >
+    <Sheet>
       <SheetTrigger asChild>
         <AlignJustify className='cursor-pointer' />
       </SheetTrigger>
       <SheetContent>
+        <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+        <SheetDescription className="sr-only">
+          Mobile navigation menu with links to different sections of the portfolio
+        </SheetDescription>
         <div className='flex flex-col items-center justify-between h-full py-8'>
           <div className='flex flex-col items-center gap-y-24'>
             <Logo />
