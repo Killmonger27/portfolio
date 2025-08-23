@@ -1,39 +1,39 @@
 export const projectData = [
   {
-    image: "/work/1.png",
+    image: "/work/Macbook-Air-pswg.png",
     category: "React.js",
     name: "Password Generator",
     description:
-      "Secure React application for generating robust passwords with customizable criteria and intuitive interface.",
+      "Advanced password generator with customizable security parameters including length control, character sets, and strength indicators. Features real-time security tips and copy-to-clipboard functionality.",
     link: "https://github.com/Killmonger27/password-generator",
     github: "https://github.com/Killmonger27/password-generator",
   },
   {
-    image: "/work/2.png",
+    image: "/work/Macbook-Air-portfolio.png",
     category: "Next.js",
     name: "Personal Portfolio",
     description:
-      "Modern portfolio built with Next.js, Tailwind CSS and Framer Motion, showcasing my skills and projects.",
+      "Modern responsive portfolio built with Next.js 14, featuring dark/light theme switching, smooth animations with Framer Motion, and optimized performance with Tailwind CSS.",
     link: "/",
     github: "https://github.com/Killmonger27/portfolio",
   },
   {
-    image: "/work/3.png",
-    category: "React.js",
-    name: "Currency Converter",
+    image: "/work/Macbook-Air-gladys.png",
+    category: "IoT Dashboard",
+    name: "Gladys Assistant",
     description:
-      "React application using real-time exchange rate API to instantly convert global currencies.",
-    link: "https://github.com/Killmonger27/currency-converter",
-    github: "https://github.com/Killmonger27/currency-converter",
+      "Smart home automation dashboard with real-time sensor monitoring, temperature controls, security management, and automated scene configurations for IoT device management.",
+    link: "https://github.com/Killmonger27/gladys-assistant",
+    github: "https://github.com/Killmonger27/gladys-assistant",
   },
   {
-    image: "/work/4.png",
-    category: "Full-Stack",
-    name: "Next.js Dashboard",
+    image: "/work/grafana-2.png",
+    category: "DevOps",
+    name: "Grafana Monitoring",
     description:
-      "Complete dashboard with authentication, data management and admin interface built with Next.js and Prisma.",
-    link: "https://github.com/Killmonger27/next-dashboard",
-    github: "https://github.com/Killmonger27/next-dashboard",
+      "Comprehensive monitoring solution with Grafana dashboards for system metrics, CPU/memory usage tracking, network latency monitoring, and real-time infrastructure health visualization.",
+    link: "https://github.com/Killmonger27/grafana-monitoring",
+    github: "https://github.com/Killmonger27/grafana-monitoring",
   },
   {
     image: "/work/1.png",

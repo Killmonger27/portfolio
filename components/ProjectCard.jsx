@@ -6,16 +6,16 @@ import { Badge } from "./ui/badge";
 
 const ProjectCard = ({ project }) => {
   return (
-    <Card className="group overflow-hidden relative">
-      <CardContent className="p-0">
+    <Card className="group overflow-hidden relative h-[520px] flex flex-col">
+      <CardContent className="p-0 flex-1">
         {/* Image */}
-        <div className="relative w-full h-[300px] flex items-center justify-center bg-tertiary dark:bg-secondary/40 xl:bg-work_project_bg_light xl:dark:bg-work_project_bg_dark xl:bg-[110%] xl:bg-no-repeat overflow-hidden">
+        <div className="relative w-full h-[350px] flex items-center justify-center bg-tertiary dark:bg-secondary/40 xl:bg-work_project_bg_light xl:dark:bg-work_project_bg_dark xl:bg-[110%] xl:bg-no-repeat overflow-hidden">
           {project.image && (
             <Image
-              className="absolute bottom-0 shadow-2xl"
+              className="absolute bottom-0 shadow-2xl object-contain"
               src={project.image}
-              width={247}
-              height={250}
+              width={320}
+              height={300}
               alt={project.name}
               priority
             />
@@ -39,12 +39,14 @@ const ProjectCard = ({ project }) => {
           </div>
         </div>
       </CardContent>
-      <div className="h-full px-8 py-6">
+      <div className="px-8 py-6 h-[170px] flex flex-col">
         <Badge className="uppercase text-sm font-medium mb-2 absolute top-4 left-5">
           {project.category}
         </Badge>
-        <h4 className="h4 mb-1">{project.name}</h4>
-        <p className="text-muted-foreground text-lg">{project.description}</p>
+        <h4 className="text-xl font-bold mb-3">{project.name}</h4>
+        <p className="text-muted-foreground text-base leading-relaxed line-clamp-4 overflow-hidden">
+          {project.description}
+        </p>
       </div>
     </Card>
   );

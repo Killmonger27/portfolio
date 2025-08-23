@@ -89,3 +89,12 @@
 .badge {
   @apply z-10 w-[200px] h-[40px]  bg-white dark:backdrop-blur-[60px] shadow-2xl p-4 rounded-[10px] flex items-center gap-x-4;
 }
+
+/* Line clamp utilities */
+.line-clamp-4 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+}
